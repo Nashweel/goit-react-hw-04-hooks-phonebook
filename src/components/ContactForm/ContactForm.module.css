@@ -1,0 +1,25 @@
+.ContactForm {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 250px;
+  height: 200px;
+  padding: 10px;
+  margin-left: 30px;
+}
+
+.FormInput:not(:last-child) {
+  margin-bottom: 40px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.FormButton {
+  height: 30px;
+}
+
+h1 {
+  margin-left: 80px;
+}
