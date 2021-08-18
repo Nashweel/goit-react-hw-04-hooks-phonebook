@@ -14,15 +14,26 @@ const ContactsList = ({ contacts, onRemove }) => {
   if (contacts.length === 0) return null;
   return (
     <ul className={s.ContactList}>
-      {contacts.map((contact) => (
-        <ContactListItem {...contact} onRemove={onRemove} />
+      {contacts.map(({ id, name, phone }) => (
+        <ContactListItem
+          name={name}
+          number={phone}
+          key={id}
+          onRemove={() => onRemove(id)}
+        />
       ))}
     </ul>
   );
 };
 
 ContactsList.propTypes = {
-  id: PropTypes.string,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   onRemove: PropTypes.func.isRequired,
 };
 
